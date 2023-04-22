@@ -9,6 +9,7 @@ import {IFilterContext, ILaunch} from "./types/types";
 import {useEffect} from 'react';
 import getFiltersData, {defaultFilterContext} from "./helpers/filter";
 import {MissionPageProvider} from "./contexts/missionPageContext";
+import Spinner from "./components/Spinner/Spinner";
 
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
         request();
     }, [])
 
-    if (loading) return <p>Loading...</p>
+    if (loading) return <Spinner/>
 
     if (errorMessage !== '') {
         return <p>ERROR: {errorMessage}</p>
