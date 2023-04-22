@@ -1,0 +1,20 @@
+.filter-item__container {
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 15px;
+    margin-right: 15px;
+}
+
+.filter-item__title {
+    color: #8f8a8a;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.filter-item__select {
+    background: #fff;
+    min-width: 200px;
+    min-height: 28px;
+    color: #4b4b4b;
+    font-size: 16px;
+    border: solid 1px #4b4b4b;
+}

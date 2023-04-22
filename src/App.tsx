@@ -1,24 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import Header from "./components/Header/Header";
+import Container from "./components/Container/Container";
+import './Reset.css'
+import FilterContainer from "./components/FilterContainer/FilterContainer";
+import MissionList from "./components/MissionList/MissionList";
+import {useFetch} from "./hooks/useFetch";
+import {IFilterContext, ILaunch} from "./types/types";
+import {useEffect} from 'react';
+import getFiltersData, {defaultFilterContext} from "./helpers/filter";
+import {MissionPageProvider} from "./contexts/missionPageContext";
+
 
 function App() {
-  return (
+    const [, setFilters] = useState<IFilterContext[] | null>(null)
+    const [loading, missionList, errorMessage, request] = useFetch<ILaunch[]>(
+        'https://api.spacexdata.com/v3/launches',
+        {method: 'GET'},
+        [],
+        false
+    );
+
+
+    useEffect(() => {
+        request();
+    }, [])
+
+    if (loading) return <p>Loading...</p>
+
+    if (errorMessage !== '') {
+        return <p>ERROR: {errorMessage}</p>
+    }
+
+    if (!missionList) return <p>Data was null</p>
+
+    const filtersData = getFiltersData(missionList);
+
+    return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Container>
+            <Header/>
+            <MissionPageProvider value={{
+                missionList: missionList, filters: defaultFilterContext, setFilters: setFilters
+            }}>
+                <FilterContainer filters={filtersData.filters}/>
+                <MissionList/>
+            </MissionPageProvider>
+        </Container>
     </div>
   );
 }
