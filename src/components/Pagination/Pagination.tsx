@@ -6,7 +6,7 @@ import './Pagination.css'
 
 const Pagination = () => {
     const {pagination} = useMissionPageContext();
-
+    console.log(pagination.currentPage)
     const handlePrevPage = (prevPage: number): void => {
         if (prevPage === 1) return;
 
@@ -22,11 +22,11 @@ const Pagination = () => {
 
     return (
         <div className={'pagination__container'}>
-            <div className="pagination__previous-page-btn" onClick={() => handlePrevPage(pagination.currentPage)}></div>
-            <div className="pagination__page-info">
+            <div className={'pagination__previous-page-btn'} onClick={() => handlePrevPage(pagination.currentPage)}></div>
+            <div className={'pagination__page-info'}>
                 Page {pagination.currentPage} of {pagination.totalPages}
             </div>
-            <div className="pagination__next-page-btn" onClick={() => handleNextPage(pagination.currentPage)}></div>
+            <div className={'pagination__next-page-btn'} onClick={() => handleNextPage(pagination.currentPage)}></div>
         </div>
     );
 };
