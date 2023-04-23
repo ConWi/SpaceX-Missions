@@ -4,7 +4,7 @@ import {IFilterItem} from "../../types/types";
 import {useMissionPageContext} from "../../contexts/missionPageContext";
 
 const FilterItem: FC<IFilterItem> = (filterItem: IFilterItem) => {
-    const { setFilters, filters } = useMissionPageContext()
+    const { setFilters, filters, pagination } = useMissionPageContext()
 
     function updateFilterContext(e: React.ChangeEvent<HTMLSelectElement>) {
         setFilters(filters.map(filter => {
@@ -14,6 +14,8 @@ const FilterItem: FC<IFilterItem> = (filterItem: IFilterItem) => {
 
             return filter
         }))
+
+        pagination.setCurrentPage(1);
     }
 
 

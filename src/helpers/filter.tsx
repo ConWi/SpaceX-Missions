@@ -12,7 +12,7 @@ function getUniqueValues<T>(data: T[], key: string): string[] {
 }
 
 export default function getFiltersData(data: ILaunch[]): IFilterProps {
-    let result: IFilterProps = {'filters': []}; // Тут я хотел поставить IFilter, но не смог, потому что нужна инициализация всех параметров
+    let result: IFilterProps = {'filters': []};
 
     filterKeysData.forEach((filterKey) => {
         result.filters.push({

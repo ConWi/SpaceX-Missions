@@ -49,5 +49,14 @@ export interface IFilterContext {
 export interface IMissionPage {
     missionList: ILaunch[],
     filters: IFilterContext[],
-    setFilters: (filters: IFilterContext[]) => void
+    setFilters: (filters: IFilterContext[]) => void,
+    pagination: IPagination,
+}
+
+export interface IPagination {
+    currentPage: number,
+    totalPages: number,
+    pageItemsLimit: number,
+    setCurrentPage: (currentPage: any) => void,
+    setTotalPages: (totalPages: number) => void,
 }

@@ -5,7 +5,7 @@ export const MissionPageContext = createContext<IMissionPage | null>(null)
 
 export const MissionPageProvider = MissionPageContext.Provider
 
-export const useMissionPageContext = () => {
+export const useMissionPageContext = (): IMissionPage => {
     const data = useContext(MissionPageContext)
 
     if (!data) throw new Error('Data in MissionPageContext doesn\'t exist');

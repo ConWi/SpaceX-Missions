@@ -10,10 +10,14 @@ import {useEffect} from 'react';
 import getFiltersData, {defaultFilterContext} from "./helpers/filter";
 import {MissionPageProvider} from "./contexts/missionPageContext";
 import Spinner from "./components/Spinner/Spinner";
+import Pagination from "./components/Pagination/Pagination";
 
 
 function App() {
+    const pageItemsLimit = 10;
     const [, setFilters] = useState<IFilterContext[] | null>(null)
+    const [currentPage, setCurrentPage] = useState<number>(1);
+    const [totalPages, setTotalPages] = useState<number>(1);
     const [loading, missionList, errorMessage, request] = useFetch<ILaunch[]>(
         'https://api.spacexdata.com/v3/launches',
         {method: 'GET'},
@@ -41,9 +45,14 @@ function App() {
         <Container>
             <Header/>
             <MissionPageProvider value={{
-                missionList: missionList, filters: defaultFilterContext, setFilters: setFilters
+                missionList: missionList, filters: defaultFilterContext, setFilters: setFilters,
+                pagination: {
+                    setCurrentPage: setCurrentPage, setTotalPages: setTotalPages,
+                    totalPages: totalPages, currentPage: currentPage, pageItemsLimit: pageItemsLimit
+                }
             }}>
                 <FilterContainer filters={filtersData.filters}/>
+                <Pagination />
                 <MissionList/>
             </MissionPageProvider>
         </Container>
