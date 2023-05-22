@@ -9,3 +9,12 @@
     color: #8f8a8a;
     font-family: 'Roboto', sans-serif;
 }
+
+@media (max-width: 485px) {
+    .header-title {
+        /*font-size: 25px;*/
+    }
+    .header-container {
+        text-align: center;
+    }
+}

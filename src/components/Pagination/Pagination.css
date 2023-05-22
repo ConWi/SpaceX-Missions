@@ -38,3 +38,9 @@
     display: flex;
 
 }
+
+@media (max-width: 485px) {
+    .pagination__container {
+        justify-content: center;
+    }
+}

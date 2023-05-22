@@ -3,3 +3,10 @@
     justify-content: flex-start;
     margin-bottom: 40px;
 }
+
+@media (max-width: 485px) {
+    .filter-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}

@@ -42,3 +42,26 @@
 .mission-info__description{
     font-size: 15px;
 }
+
+
+@media (max-width: 485px) {
+    .mission-item, .mission-info {
+        height: inherit;
+    }
+
+    .mission-item__container {
+        flex-direction: column;
+    }
+
+    .mission-item__img {
+        margin: 0 auto;
+    }
+
+    .mission-info {
+        width: inherit;
+    }
+
+    .mission-info__description {
+        text-align: center;
+    }
+}
