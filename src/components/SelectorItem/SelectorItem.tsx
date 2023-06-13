@@ -1,10 +1,12 @@
 import React, {FC} from 'react';
-import './FilterItem.css'
+import './SelectItem.css'
 import {IFilterItem} from "../../types/types";
 import {useMissionPageContext} from "../../contexts/missionPageContext";
+import { useNavigate } from 'react-router-dom';
 
-const FilterItem: FC<IFilterItem> = (filterItem: IFilterItem) => {
-    const { setFilters, filters, pagination } = useMissionPageContext()
+const SelectItem: FC<IFilterItem> = (filterItem: IFilterItem) => {
+    const { setFilters, filters} = useMissionPageContext()
+    const navigate = useNavigate()
 
     function updateFilterContext(e: React.ChangeEvent<HTMLSelectElement>) {
         setFilters(filters.map(filter => {
@@ -14,16 +16,15 @@ const FilterItem: FC<IFilterItem> = (filterItem: IFilterItem) => {
 
             return filter
         }))
-
-        pagination.setCurrentPage(1);
+        navigate('/1')
     }
 
 
 
     return (
-        <div className={'filter-item__container'}>
-            <div className={'filter-item__title'}>{filterItem.title}</div>
-            <select name={filterItem.selectName} onChange={e => updateFilterContext(e)} className={'filter-item__select'}>
+        <div className={'select-item__container'}>
+            <div className={'select-item__title'}>{filterItem.title}</div>
+            <select name={filterItem.selectName} onChange={e => updateFilterContext(e)} className={'select-item__select'}>
                 <option value={'All'}>All</option>
                 {filterItem.values.map((value) => {
                     return <option key={value} value={value}>{value}</option>
@@ -33,4 +34,4 @@ const FilterItem: FC<IFilterItem> = (filterItem: IFilterItem) => {
     );
 };
 
-export default FilterItem;
+export default SelectItem;
