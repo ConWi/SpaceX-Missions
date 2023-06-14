@@ -8,7 +8,6 @@ export interface ISelectorContainerProps {
 }
 
 const SelectorContainer = ({selectorItems}: ISelectorContainerProps) => {
-    console.log('Filter Container')
     return (
         <div className={'selector-container'}>
             {selectorItems.map((selectorItem) => {
