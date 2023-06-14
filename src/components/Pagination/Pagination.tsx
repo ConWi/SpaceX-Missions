@@ -1,6 +1,6 @@
 import React from 'react';
 import {useMissionPageContext} from '../../contexts/missionPageContext';
-import './Pagination.css'
+import style from './Pagination.module.css'
 import {useRoutingDataList} from '../../hooks/routing/useRoutingDataList';
 import {updateURL} from '../../helpers/routing/queryParams';
 
@@ -21,12 +21,12 @@ const Pagination = () => {
     };
 
     return (
-        <div className={'pagination__container'}>
-            <div className={'pagination__previous-page-btn'} onClick={() => handlePrevPage(pagination.currentPage)}></div>
-            <div className={'pagination__page-info'}>
+        <div className={style.paginationContainer}>
+            <div className={style.paginationPreviousPageBtn} onClick={() => handlePrevPage(pagination.currentPage)}></div>
+            <div className={style.paginationPageInfo}>
                 Page {pagination.currentPage} of {pagination.totalPages}
             </div>
-            <div className={'pagination__next-page-btn'} onClick={() => handleNextPage(pagination.currentPage)}></div>
+            <div className={style.paginationNextPageBtn} onClick={() => handleNextPage(pagination.currentPage)}></div>
         </div>
     );
 };

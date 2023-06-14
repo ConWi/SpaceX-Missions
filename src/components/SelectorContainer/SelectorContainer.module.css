@@ -1,11 +1,11 @@
-.selector-container {
+.selectorContainer {
     display: flex;
     justify-content: flex-start;
     margin-bottom: 40px;
 }
 
 @media (max-width: 485px) {
-    .selector-container {
+    .selectorContainer {
         flex-direction: column;
         align-items: center;
     }

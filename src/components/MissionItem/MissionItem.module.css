@@ -1,67 +1,67 @@
-.mission-item {
+.missionItem {
     height: 200px;
     font-family: 'Roboto', sans-serif;
     color: #8a8a8a;
     margin-bottom: 40px;
 }
 
-.mission-item__container{
+.missionItemContainer{
     display: flex;
     justify-content: space-between;
     width: inherit;
     height: inherit;
 }
-.mission-item__img{
+.missionItemImg{
     margin-right: 20px;
 }
-.mission-item__img img{
+.missionItemImg img{
     height: 100%;
     object-fit: cover;
 }
 
-.mission-info{
+.missionInfo{
     height: 200px;
     width: 740px;
 }
 
-.mission-info__header {
+.missionInfoHeader {
     display: flex;
     justify-content: space-between;
     padding-top: 10px;
     margin-bottom: 20px;
 }
 
-.mission-info__title{
+.missionInfoTitle{
     color: #4b4b4b;
     /*font-weight: bold;*/
     font-size: 20px;
 }
-.mission-info__date{
+.missionInfoDate{
     font-size: 18px;
 }
-.mission-info__description{
+.missionInfoDescription{
     font-size: 15px;
 }
 
 
 @media (max-width: 485px) {
-    .mission-item, .mission-info {
+    .missionItem, .missionInfo {
         height: inherit;
     }
 
-    .mission-item__container {
+    .missionItemContainer {
         flex-direction: column;
     }
 
-    .mission-item__img {
+    .missionItemImg {
         margin: 0 auto;
     }
 
-    .mission-info {
+    .missionInfo {
         width: inherit;
     }
 
-    .mission-info__description {
+    .missionInfoDescription {
         text-align: center;
     }
 }

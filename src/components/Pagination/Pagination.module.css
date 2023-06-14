@@ -1,4 +1,4 @@
-.pagination__previous-page-btn, .pagination__next-page-btn {
+.paginationPreviousPageBtn, .paginationNextPageBtn {
     width: 0;
     height: 0;
     border-top: 10px solid transparent;
@@ -7,25 +7,25 @@
     cursor: pointer;
 }
 
-.pagination__previous-page-btn {
+.paginationPreviousPageBtn {
     border-right:15px solid #ada8a8;
     margin-right: 4px;
 }
 
-.pagination__next-page-btn {
+.paginationNextPageBtn {
     border-left: 15px solid #ada8a8;
     margin-left: 4px;
 }
 
-.pagination__next-page-btn:hover, .pagination__previous-page-btn:hover {
+.paginationNextPageBtn:hover, .paginationPreviousPageBtn:hover {
     border-left-color: #8f8a8a;
 }
 
-.pagination__previous-page-btn:hover {
+.paginationPreviousPageBtn:hover {
     border-right-color: #8f8a8a;
 }
 
-.pagination__page-info{
+.paginationPageInfo{
     color: #8f8a8a;
     font-size: 20px;
     margin-bottom: 10px;
@@ -33,14 +33,14 @@
 }
 
 
-.pagination__container {
+.paginationContainer {
     margin-bottom: 15px;
     display: flex;
 
 }
 
 @media (max-width: 485px) {
-    .pagination__container {
+    .paginationContainer {
         justify-content: center;
     }
 }

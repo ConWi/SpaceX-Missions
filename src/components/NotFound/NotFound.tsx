@@ -1,17 +1,17 @@
 import React from 'react';
-import './NotFound.css'
+import style from './NotFound.module.css'
 import {Link} from 'react-router-dom'
 import {DefaultPaths} from '../../types/routing/routing';
 
 const NotFound = () => {
     return (
-        <div className={'not-found__container'}>
-            <h1 className={'not-found__header'}>Oops</h1>
-            <div className={'not-found__description'}>
+        <div className={style.notFoundContainer}>
+            <h1 className={style.notFoundHeader}>Oops</h1>
+            <div className={style.notFoundDescription}>
                 The Page you're looking for isn't here.&nbsp;
                 <Link
                     to={DefaultPaths.MissionsStarterPage}
-                    className={'not-found__home-link'}
+                    className={style.notFoundHomeLink}
                 >Return home?</Link>
             </div>
         </div>

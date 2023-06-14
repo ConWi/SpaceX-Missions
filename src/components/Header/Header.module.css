@@ -1,8 +1,8 @@
-.header-container {
+.headerContainer {
     margin-bottom: 30px;
 }
 
-.header-title {
+.headerTitle {
     font-size: 32px;
     padding-top: 15px;
     font-weight: bold;
@@ -11,10 +11,10 @@
 }
 
 @media (max-width: 485px) {
-    .header-title {
+    .headerTitle {
         /*font-size: 25px;*/
     }
-    .header-container {
+    .headerContainer {
         text-align: center;
     }
 }

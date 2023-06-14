@@ -1,5 +1,5 @@
 import React from 'react';
-import './SelectorItem.css'
+import style from './SelectorItem.module.css'
 import {useMissionPageContext} from '../../contexts/missionPageContext';
 import {ISelectorItem} from '../../types/selector/selector';
 import {onChangeOption} from '../../helpers/selector/selector';
@@ -14,12 +14,12 @@ const SelectorItem = ({selectorItem}: ISelectorItemProps) => {
     const {navigate, queryParams} = useRoutingDataList()
 
     return (
-        <div className={'selector-item__container'}>
-            <div className={'selector-item__title'}>{selectorItem.title}</div>
+        <div className={style.selectorItemContainer}>
+            <div className={style.selectorItemTitle}>{selectorItem.title}</div>
             <select
                 name={selectorItem.selectorName}
                 onChange={e => onChangeOption(e, navigate, queryParams)}
-                className={'selector-item__select'}
+                className={style.selectorItemSelect}
             >
                 <option value={selectorItem.defaultOptionValue}>{selectorItem.defaultOptionValue}</option>
                 {selectorItem.options.map((option) => {

@@ -1,9 +1,9 @@
 import React from 'react';
-import './Spinner.css'
+import style from './Spinner.module.css'
 
 const Spinner = () => {
     return (
-        <div className={'loader pos-center'}></div>
+        <div className={style.loader + style.posCenter}></div>
     );
 };
 

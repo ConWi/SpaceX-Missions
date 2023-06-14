@@ -1,6 +1,6 @@
 import React from 'react';
 import SelectorItem from '../SelectorItem/SelectorItem';
-import './SelectorContainer.css'
+import style from './SelectorContainer.module.css'
 import {ISelectorItem} from '../../types/selector/selector';
 
 export interface ISelectorContainerProps {
@@ -9,7 +9,7 @@ export interface ISelectorContainerProps {
 
 const SelectorContainer = ({selectorItems}: ISelectorContainerProps) => {
     return (
-        <div className={'selector-container'}>
+        <div className={style.selectorContainer}>
             {selectorItems.map((selectorItem) => {
                 return <SelectorItem key={selectorItem.selectorName} selectorItem={selectorItem}/>
             })}

@@ -1,5 +1,5 @@
 import React from 'react';
-import './MissionItem.css'
+import style from './MissionItem.module.css'
 import {ILaunch} from '../../types/launch/launch';
 import defaultLaunch from './../../assets/default-back.jpg'
 import {convertFormatToRussian} from '../../helpers/date/dateHandler';
@@ -7,22 +7,22 @@ import {convertFormatToRussian} from '../../helpers/date/dateHandler';
 const MissionItem = ({...mission}: ILaunch) => {
 
     return (
-        <div className={'mission-item'}>
-            <div className={'mission-item__container'}>
-                <div className={'mission-item__img'}>
+        <div className={style.missionItem}>
+            <div className={style.missionItemContainer}>
+                <div className={style.missionItemImg}>
                     <img
                         src={mission.links.missionPatchSmall ?? defaultLaunch}
                         alt="Rocket"
                     />
                 </div>
-                <div className={'mission-info'}>
-                    <div className={'mission-info__header'}>
-                        <div className={'mission-info__title'}>{mission.missionName}</div>
-                        <div className={'mission-info__date'}>
+                <div className={style.missionInfo}>
+                    <div className={style.missionInfoHeader}>
+                        <div className={style.missionInfoTitle}>{mission.missionName}</div>
+                        <div className={style.missionInfoDate}>
                             {convertFormatToRussian(mission.launchDateUtc)}
                         </div>
                     </div>
-                    <div className={'mission-info__description'}>
+                    <div className={style.missionInfoDescription}>
                         {mission.details ?? 'Describe is empty'}
                     </div>
                 </div>

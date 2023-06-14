@@ -1,5 +1,5 @@
 import React from 'react';
-import './MissionList.css'
+import style from './MissionList.module.css'
 import MissionItem from '../MissionItem/MissionItem';
 import {useMissionPageContext} from '../../contexts/missionPageContext';
 import {getMissionsByPagination} from '../../helpers/pagination/missions';
@@ -13,7 +13,7 @@ const MissionList = () => {
 
     const missionsPage = getMissionsByPagination(missionList, pagination.currentPage, pagination.pageMissionsLimit)
     return (
-        <div className={'mission-list__container'}>
+        <div className={style.missionListContainer}>
             {
                 missionsPage.map((missionItem, index) => {
                 return <MissionItem key={index} {...missionItem}/>

@@ -7,7 +7,7 @@
     animation: spin 1s linear infinite;
 }
 
-.pos-center {
+.posCenter {
     position: fixed;
     top: calc(50% - 40px);
     left: calc(50% - 40px);
