@@ -1,8 +1,8 @@
 import React from 'react';
 import './MissionItem.css'
-import {ILaunch} from "../../types/types";
 import defaultLaunch from './../../assets/default-back.jpg'
-import {prettifyDate} from "../../helpers/dateHandler";
+import { convertFormatToRussian } from '../../helpers/date/dateHandler';
+import { ILaunch } from '../../types/launch/launch';
 
 const MissionItem = ({...mission}: ILaunch) => {
 
@@ -12,15 +12,15 @@ const MissionItem = ({...mission}: ILaunch) => {
             <div className={'mission-item__container'}>
                 <div className={'mission-item__img'}>
                     <img
-                        src={mission.links.mission_patch_small ?? defaultLaunch}
+                        src={mission.links.missionPatchSmall ?? defaultLaunch}
                         alt="Rocket"
                     />
                 </div>
                 <div className={'mission-info'}>
                     <div className={'mission-info__header'}>
-                        <div className={'mission-info__title'}>{mission.mission_name}</div>
+                        <div className={'mission-info__title'}>{mission.missionName}</div>
                         <div className={'mission-info__date'}>
-                            {prettifyDate(mission.launch_date_utc)}
+                            {convertFormatToRussian(mission.launchDateUtc)}
                         </div>
                     </div>
                     <div className={'mission-info__description'}>
