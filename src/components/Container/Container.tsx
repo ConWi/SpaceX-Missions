@@ -6,7 +6,6 @@ interface ContainerProps {
 }
 
 const Container = ({children}: ContainerProps) => {
-    console.log('Container')
     return (
         <div className={'main-container'}>
             {children}

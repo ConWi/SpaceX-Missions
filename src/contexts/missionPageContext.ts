@@ -1,11 +1,10 @@
-import {IMissionPage} from "../types/types";
 import {createContext, useContext} from 'react'
+import {IMissionPageContext} from '../types/context/mission'
 
-export const MissionPageContext = createContext<IMissionPage | null>(null)
-
+export const MissionPageContext = createContext<IMissionPageContext | null>(null)
 export const MissionPageProvider = MissionPageContext.Provider
 
-export const useMissionPageContext = (): IMissionPage => {
+export const useMissionPageContext = (): IMissionPageContext => {
     const data = useContext(MissionPageContext)
 
     if (!data) throw new Error('Data in MissionPageContext doesn\'t exist');

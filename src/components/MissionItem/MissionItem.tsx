@@ -1,12 +1,11 @@
 import React from 'react';
 import './MissionItem.css'
+import {ILaunch} from '../../types/launch/launch';
 import defaultLaunch from './../../assets/default-back.jpg'
-import { convertFormatToRussian } from '../../helpers/date/dateHandler';
-import { ILaunch } from '../../types/launch/launch';
+import {convertFormatToRussian} from '../../helpers/date/dateHandler';
 
 const MissionItem = ({...mission}: ILaunch) => {
 
-    console.log('Mission Item')
     return (
         <div className={'mission-item'}>
             <div className={'mission-item__container'}>

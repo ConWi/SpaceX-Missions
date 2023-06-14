@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {getErrorMessage} from '../../helpers/errorHandler';
+import {getErrorMessage} from '../../helpers/error/errorHandler';
 import {IFetch} from '../../types/api/fetch';
 import {httpMethod} from '../../types/api/http';
 

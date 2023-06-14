@@ -1,36 +1,21 @@
-import React, {FC, useEffect} from 'react';
+import React from 'react';
 import './MissionList.css'
-import MissionItem from "../MissionItem/MissionItem";
-import {useMissionPageContext} from "../../contexts/missionPageContext";
-import {getFilteredData} from "../../helpers/filter";
+import MissionItem from '../MissionItem/MissionItem';
+import {useMissionPageContext} from '../../contexts/missionPageContext';
+import {getMissionsByPagination} from '../../helpers/pagination/missions';
 
-const MissionList: FC = () => {
-    const {filters, missionList, pagination} = useMissionPageContext();
-    const filteredData = getFilteredData(missionList, filters)
-    const maxItemIndex = pagination.pageItemsLimit * pagination.currentPage;
-    const minItemIndex = pagination.pageItemsLimit * (pagination.currentPage - 1);
+const MissionList = () => {
+    const {missionList, pagination} = useMissionPageContext();
 
-
-    useEffect(() => {
-        if (!filteredData.length) {
-            pagination.setTotalPages(1);
-            return;
-        }
-
-        pagination.setTotalPages(Math.ceil(filteredData.length / pagination.pageItemsLimit));
-    }, [filteredData])
-
-
-    if (!filteredData.length) {
+    if (!missionList.length) {
         return <p>No matching data</p>
     }
 
+    const missionsPage = getMissionsByPagination(missionList, pagination.currentPage, pagination.pageMissionsLimit)
     return (
         <div className={'mission-list__container'}>
-            {filteredData
-                ?.filter((item, index) => index >= minItemIndex && index < maxItemIndex)
-                ?.map((missionItem, index) => {
-                if (index > 20) return '';
+            {
+                missionsPage.map((missionItem, index) => {
                 return <MissionItem key={index} {...missionItem}/>
             })}
         </div>

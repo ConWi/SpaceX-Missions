@@ -1,37 +1,39 @@
-import React, {FC} from 'react';
-import './SelectItem.css'
-import {IFilterItem} from "../../types/types";
-import {useMissionPageContext} from "../../contexts/missionPageContext";
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import './SelectorItem.css'
+import {useMissionPageContext} from '../../contexts/missionPageContext';
+import {ISelectorItem} from '../../types/selector/selector';
+import {onChangeOption} from '../../helpers/selector/selector';
+import {useRoutingDataList} from '../../hooks/routing/useRoutingDataList';
 
-const SelectItem: FC<IFilterItem> = (filterItem: IFilterItem) => {
-    const { setFilters, filters} = useMissionPageContext()
-    const navigate = useNavigate()
+export interface ISelectorItemProps {
+    selectorItem: ISelectorItem
+}
 
-    function updateFilterContext(e: React.ChangeEvent<HTMLSelectElement>) {
-        setFilters(filters.map(filter => {
-            if (e.target.name === filter.selectName) {
-                filter.value = e.target.value
-            }
-
-            return filter
-        }))
-        navigate('/1')
-    }
-
-
+const SelectorItem = ({selectorItem}: ISelectorItemProps) => {
+    const {selectedOptions} = useMissionPageContext();
+    const {navigate, queryParams} = useRoutingDataList()
 
     return (
-        <div className={'select-item__container'}>
-            <div className={'select-item__title'}>{filterItem.title}</div>
-            <select name={filterItem.selectName} onChange={e => updateFilterContext(e)} className={'select-item__select'}>
-                <option value={'All'}>All</option>
-                {filterItem.values.map((value) => {
-                    return <option key={value} value={value}>{value}</option>
+        <div className={'selector-item__container'}>
+            <div className={'selector-item__title'}>{selectorItem.title}</div>
+            <select
+                name={selectorItem.selectorName}
+                onChange={e => onChangeOption(e, navigate, queryParams)}
+                className={'selector-item__select'}
+            >
+                <option value={selectorItem.defaultOptionValue}>{selectorItem.defaultOptionValue}</option>
+                {selectorItem.options.map((option) => {
+                    return <option
+                        key={option}
+                        value={option}
+                        selected={(option === selectedOptions[selectorItem.selectorName])}
+                    >
+                        {option}
+                    </option>
                 })}
             </select>
         </div>
     );
 };
 
-export default SelectItem;
+export default SelectorItem;

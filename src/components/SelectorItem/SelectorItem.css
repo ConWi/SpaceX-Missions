@@ -1,16 +1,16 @@
-.select-item__container {
+.selector-item__container {
     font-family: 'Roboto', sans-serif;
     margin-bottom: 15px;
     margin-right: 15px;
 }
 
-.select-item__title {
+.selector-item__title {
     color: #8f8a8a;
     font-size: 20px;
     margin-bottom: 10px;
 }
 
-.select-item__select {
+.selector-item__select {
     background: #fff;
     min-width: 200px;
     min-height: 28px;
@@ -20,7 +20,7 @@
 }
 
 @media (max-width: 485px) {
-    .select-item__container {
+    .selector-item__container {
         margin-right: 0;
     }
 }

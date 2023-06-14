@@ -1,23 +1,23 @@
 import React from 'react';
-import {useMissionPageContext} from "../../contexts/missionPageContext";
+import {useMissionPageContext} from '../../contexts/missionPageContext';
 import './Pagination.css'
-
-
+import {useRoutingDataList} from '../../hooks/routing/useRoutingDataList';
+import {updateURL} from '../../helpers/routing/queryParams';
 
 const Pagination = () => {
     const {pagination} = useMissionPageContext();
-    console.log(pagination.currentPage)
+    const {navigate, queryParams} = useRoutingDataList();
+
     const handlePrevPage = (prevPage: number): void => {
         if (prevPage === 1) return;
 
-        pagination.setCurrentPage((prevPage: number): number => --prevPage);
+        updateURL(`/${--prevPage}`, queryParams, navigate)
     };
 
     const handleNextPage = (nextPage: number): void => {
-        console.log(nextPage);
         if (nextPage === pagination.totalPages) return;
 
-        pagination.setCurrentPage((nextPage: number): number => ++nextPage);
+        updateURL(`/${++nextPage}`, queryParams, navigate)
     };
 
     return (

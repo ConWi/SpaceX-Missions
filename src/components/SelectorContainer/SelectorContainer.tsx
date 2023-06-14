@@ -1,19 +1,21 @@
-import React, {FC} from 'react';
-import SelectItem from "../SelectItem/SelectItem";
-import './SelectContainer.css'
-import {IFilterProps} from "../../types/types";
+import React from 'react';
+import SelectorItem from '../SelectorItem/SelectorItem';
+import './SelectorContainer.css'
+import {ISelectorItem} from '../../types/selector/selector';
 
+export interface ISelectorContainerProps {
+    selectorItems: ISelectorItem[]
+}
 
-const SelectContainer: FC<IFilterProps> = ({filters}: IFilterProps) => {
-
+const SelectorContainer = ({selectorItems}: ISelectorContainerProps) => {
     console.log('Filter Container')
     return (
-        <div className={'select-container'}>
-            {filters.map((filter) => {
-                return <SelectItem key={filter.selectName} {...filter}/>
+        <div className={'selector-container'}>
+            {selectorItems.map((selectorItem) => {
+                return <SelectorItem key={selectorItem.selectorName} selectorItem={selectorItem}/>
             })}
         </div>
     );
 };
 
-export default SelectContainer;
+export default SelectorContainer;

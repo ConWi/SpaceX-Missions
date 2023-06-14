@@ -9,7 +9,6 @@ import {
     SelectorTitles
 } from '../../../types/selector/selector';
 
-
 export const useSelectorItems = (data: ILaunch[]): ISelectorItem[] => {
     let result: ISelectorItem[] = [];
 
