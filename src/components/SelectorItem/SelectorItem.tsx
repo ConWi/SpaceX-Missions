@@ -22,15 +22,15 @@ const SelectorItem = ({selectorItem}: ISelectorItemProps) => {
                 className={style.selectorItemSelect}
             >
                 <option value={selectorItem.defaultOptionValue}>{selectorItem.defaultOptionValue}</option>
-                {selectorItem.options.map((option) => {
-                    return <option
+                {selectorItem.options.map((option) => (
+                    <option
                         key={option}
                         value={option}
                         selected={(option === selectedOptions[selectorItem.selectorName])}
                     >
                         {option}
                     </option>
-                })}
+                ))}
             </select>
         </div>
     );

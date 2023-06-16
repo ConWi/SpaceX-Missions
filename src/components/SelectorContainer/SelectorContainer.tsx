@@ -7,14 +7,14 @@ export interface ISelectorContainerProps {
     selectorItems: ISelectorItem[]
 }
 
-const SelectorContainer = ({selectorItems}: ISelectorContainerProps) => {
-    return (
-        <div className={style.selectorContainer}>
-            {selectorItems.map((selectorItem) => {
-                return <SelectorItem key={selectorItem.selectorName} selectorItem={selectorItem}/>
-            })}
-        </div>
-    );
-};
+const SelectorContainer = ({selectorItems}: ISelectorContainerProps) => (
+    <div className={style.selectorContainer}>
+        {
+            selectorItems.map(
+                selectorItem => <SelectorItem key={selectorItem.selectorName} selectorItem={selectorItem}/>
+            )
+        }
+    </div>
+);
 
 export default SelectorContainer;

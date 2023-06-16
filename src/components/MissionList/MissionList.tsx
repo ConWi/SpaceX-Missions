@@ -15,9 +15,8 @@ const MissionList = () => {
     return (
         <div className={style.missionListContainer}>
             {
-                missionsPage.map((missionItem, index) => {
-                return <MissionItem key={index} {...missionItem}/>
-            })}
+                missionsPage.map((missionItem, index) => <MissionItem key={index} {...missionItem}/>)
+            }
         </div>
     );
 };

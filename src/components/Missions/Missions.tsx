@@ -36,7 +36,7 @@ const Missions = ({currentPage}: IMissionsProps) => {
     }
 
     return (
-        <div className="App">
+        <div className='App'>
             <Container>
                 <Header/>
                 <MissionPageProvider value={{
