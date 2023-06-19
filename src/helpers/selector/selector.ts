@@ -7,7 +7,7 @@ export function onChangeOption(
     e: React.ChangeEvent<HTMLSelectElement>,
     navigate: NavigateFunction,
     queryParams: URLSearchParams
-): void {
+) {
     const optionName = e.target.name;
     const optionValue = e.target.value
 

@@ -13,7 +13,7 @@ export function setValueByKey (
     key: string,
     value: string,
     shouldChangeURL: boolean = true
-): void {
+) {
     params.set(key, value);
 
     if (shouldChangeURL) navigate({search: params.toString()})
@@ -24,12 +24,12 @@ export function removeQueryParam (
     navigate: NavigateFunction,
     key: string,
     shouldChangeURL: boolean = true
-): void {
+) {
     params.delete(key)
 
     if (shouldChangeURL) navigate({search: params.toString()})
 }
 
-export function updateURL(pathname: string, params: URLSearchParams, navigate: NavigateFunction): void {
+export function updateURL(pathname: string, params: URLSearchParams, navigate: NavigateFunction) {
     navigate({pathname: pathname, search: params.toString()})
 }

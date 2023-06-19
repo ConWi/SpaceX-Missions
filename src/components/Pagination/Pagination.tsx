@@ -8,13 +8,13 @@ const Pagination = () => {
     const {pagination} = useMissionPageContext();
     const {navigate, queryParams} = useRoutingDataList();
 
-    const handlePrevPage = (prevPage: number): void => {
+    const handlePrevPage = (prevPage: number) => {
         if (prevPage === 1) return;
 
         updateURL(`/${--prevPage}`, queryParams, navigate)
     };
 
-    const handleNextPage = (nextPage: number): void => {
+    const handleNextPage = (nextPage: number) => {
         if (nextPage === pagination.totalPages) return;
 
         updateURL(`/${++nextPage}`, queryParams, navigate)
