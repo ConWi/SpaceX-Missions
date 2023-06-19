@@ -3,7 +3,7 @@ import SelectorItem from '../SelectorItem/SelectorItem';
 import style from './SelectorContainer.module.css'
 import {ISelectorItem} from '../../types/selector/selector';
 
-export interface ISelectorContainerProps {
+export type ISelectorContainerProps = {
     selectorItems: ISelectorItem[]
 }
 

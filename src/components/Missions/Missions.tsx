@@ -14,7 +14,7 @@ import {getMissionsPaginationInfo, isInvalidCurrentPage} from '../../helpers/pag
 import {useRoutingDataList} from '../../hooks/routing/useRoutingDataList';
 import {updateURL} from '../../helpers/routing/queryParams';
 
-export interface IMissionsProps {
+export type IMissionsProps = {
     currentPage: number
 }
 

@@ -5,7 +5,7 @@ import {ISelectorItem} from '../../types/selector/selector';
 import {onChangeOption} from '../../helpers/selector/selector';
 import {useRoutingDataList} from '../../hooks/routing/useRoutingDataList';
 
-export interface ISelectorItemProps {
+export type ISelectorItemProps = {
     selectorItem: ISelectorItem
 }
 
