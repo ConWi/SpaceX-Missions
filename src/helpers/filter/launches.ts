@@ -3,11 +3,19 @@ import {DefaultSelectedOptions, ISelectedOptions} from '../../types/selector/sel
 
 export function getFilteredLaunchList(launchList: ILaunch[], selectedOptions: ISelectedOptions): ILaunch[] {
     return launchList.filter(launch => {
-        const rocketFilterPassed = selectedOptions.rocket === launch.rocket.rocket_name
-            || selectedOptions.rocket === DefaultSelectedOptions.All;
-        const launchSiteFilterPassed = selectedOptions.launch_site === launch.launchSite.site_name
-            || selectedOptions.launch_site === DefaultSelectedOptions.All;
+        const rocketFilterMatched = isSelectedOption(selectedOptions.rocket, launch.rocket.rocket_name)
+            || isDefaultOption(selectedOptions.rocket);
+        const launchSiteFilterMatched = isSelectedOption(selectedOptions.launch_site, launch.launchSite.site_name)
+            || isDefaultOption(selectedOptions.launch_site);
 
-        return rocketFilterPassed && launchSiteFilterPassed;
+        return rocketFilterMatched && launchSiteFilterMatched;
     })
+}
+
+const isDefaultOption = (option: string | DefaultSelectedOptions): boolean => {
+    return option === DefaultSelectedOptions.All;
+}
+
+const isSelectedOption = (selectedOptionValue: string, launchValue: string): boolean => {
+    return selectedOptionValue === launchValue
 }
