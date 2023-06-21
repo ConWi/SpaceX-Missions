@@ -1,3 +1,3 @@
-export function convertArrayItemsToObject(array: Object[]): {} {
+export function convertArrayItemsToObject<T extends object>(array: T[]): {} {
     return array.reduce((acc, obj) => ({...acc, ...obj}), {})
 }
