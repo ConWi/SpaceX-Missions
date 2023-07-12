@@ -26,7 +26,7 @@ const SelectorItem = ({selectorItem}: ISelectorItemProps) => {
                     <option
                         key={option}
                         value={option}
-                        selected={(option === selectedOptions[selectorItem.selectorName])}
+                        defaultValue={(option === selectedOptions[selectorItem.selectorName]) ? option : undefined}
                     >
                         {option}
                     </option>
