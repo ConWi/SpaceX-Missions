@@ -1,8 +1,8 @@
 import {ILaunchDto} from '../../types/dto/launch';
 import {ILaunch} from '../../types/launch/launch';
 
-export const convertLaunchesDtoToLaunches = (launchesDto: ILaunchDto[] = []): ILaunch[] | [] => {
-    return launchesDto?.map(launchDto => launchMapping(launchDto))
+export const convertLaunchesDtoToLaunches = (launchesDto: ILaunchDto[]): ILaunch[] => {
+    return launchesDto.map(launchDto => launchMapping(launchDto))
 }
 
 const launchMapping = (launchDto: ILaunchDto) => {

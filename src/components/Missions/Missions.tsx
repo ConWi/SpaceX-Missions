@@ -5,7 +5,7 @@ import {MissionPageProvider} from '../../contexts/missionPageContext';
 import SelectorContainer from '../SelectorContainer/SelectorContainer';
 import Pagination from '../Pagination/Pagination';
 import MissionList from '../MissionList/MissionList';
-import {useFetchLaunches} from '../../hooks/api/launches/useFetchLaunches';
+import {getLaunchesRQ, useFetchLaunches, useLaunchesRQ} from '../../hooks/api/launches/useFetchLaunches';
 import {useValidateFetchedLaunches} from '../../hooks/api/launches/useValidateFetchedLaunches';
 import Spinner from '../Spinner/Spinner';
 import {getFilteredLaunchList} from '../../helpers/filter/launches';
@@ -20,13 +20,11 @@ export type IMissionsProps = {
 
 const Missions = ({currentPage}: IMissionsProps) => {
     const {queryParams, navigate} = useRoutingDataList()
-    const {loading, launchList, errorMessage} = useFetchLaunches()
+    let {isFetching, data: launchList} = useLaunchesRQ()
+    // const {loading, launchList, errorMessage} = useFetchLaunches()
     const {selectedOptions, selectorItems} = useSelectorData(launchList)
-    const {isValidLaunches, validationErrorMessage} = useValidateFetchedLaunches(errorMessage, launchList)
 
-    if (loading) return <Spinner/>
-
-    if (!isValidLaunches) return <p>{validationErrorMessage}</p>
+    if (isFetching) return <Spinner/>
 
     const filteredLaunchList = getFilteredLaunchList(launchList, selectedOptions)
     const pagination = getMissionsPaginationInfo(filteredLaunchList, currentPage)
